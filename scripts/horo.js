@@ -12,30 +12,58 @@ function romanize(num) {
 	return Array(+digits.join('') + 1).join('M') + roman;
 }
 function updateClock(){
-	d=new Date();
-	document.getElementById('clock').innerHTML = 
-		'<div><p>ANNUS</p><p>' +
-		romanize(d.getFullYear()) +
-		'</p></div><div><p>MENSIS</p><p>' +
-		romanize(d.getMonth()+1) +
-		'</p></div><div><p>DOMUS</p><p>' +
-		romanize(d.getDate()) +
-		'</p></div><div><p>HORA</p><p>' +
-		romanize(d.getHours()) +
-		'</p></div><div><p>MINUTUS</p><p>' +
-		romanize(d.getMinutes()) +
-		'</p></div><div><p>SECUNDUS</p><p>' +
-		romanize(d.getSeconds()) +
-		'</p></div>';
+	const d=new Date();
+	const clocktext = document.getElementById('clocktext');
+
+	clocktext.innerHTML = 
+		`<div>
+			 <p>ANNUS</p>
+			 <p>${romanize(d.getFullYear())}</p>
+		 </div>
+		 <div>
+			 <p>MENSIS</p>
+			 <p>${romanize(d.getMonth()+1)}</p>
+		 </div>
+		 <div>
+			 <xhtmlp>DOMUS</p>
+			 <p>${romanize(d.getDate())}</p>
+		 </div>
+		 <div>
+			 <p>HORA</p>
+			 <p>${romanize(d.getHours())}</p>
+		 </div>
+		 <div>
+		 	 <p>MINUTUS</p>
+		 	 <p>${romanize(d.getMinutes())}</p>
+		 </div>
+		 <div>
+			 <p>SECUNDUS</p>
+			 <p>${romanize(d.getSeconds())}</p>
+		 </div>`;
 	setTimeout(updateClock,1000);
 }
+function buildClock() {
+	const clock = document.getElementById('clock');
+	const content = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
+	const clocktext = document.createElement('div');
+
+	clock.setAttribute('viewBox', '0 0 1920 1080');
+	content.setAttribute('x', '0');
+	content.setAttribute('y', '12');
+	content.setAttribute('width', '1920');
+	content.setAttribute('height', '1080');
+	clocktext.setAttribute('id', 'clocktext');
+
+	clock.appendChild(content);
+	content.appendChild(clocktext);
+
+	updateClock();
+}
 $(function () {
-		updateClock();
+	buildClock()
 		var timeout = null;
 		var adtimer = null;
-		$('#clock').fitText(1.5);
-		$('footer').fitText(.5); 
-		$('#socialBar').hover(
+		$('#menuBar').hover(
 			function() {
 				if (timeout) {
 					clearTimeout(timeout);
@@ -44,7 +72,7 @@ $(function () {
 				$(this).animate({ marginTop: 0 }, 'fast');
 			},
 			function() {
-				var initialMargin = parseInt(-1 * ($('#socialBar').height()+5));
+				var initialMargin = parseInt(-1 * ($('#menuBar').height()+5));
 				var menuBar = $(this);
 				timeout = setTimeout(function() {
 					timeout = null;
@@ -52,7 +80,7 @@ $(function () {
 				}, 1000);
 			}
 		);
-		$('#addBlock').hover(
+		$('#adBlock').hover(
 			function() {
 				if (adtimer) {
 					clearTimeout(adtimer);
@@ -72,37 +100,37 @@ $(function () {
 			$('.igoogle').hide();
 		}
 		$(window).resize(function() {
-			$('#socialBar').css('margin-left', (-1 * (($('#socialBar').width()/2)+10)));
-			$('#socialBar').css('margin-top', (-1 * ($('#socialBar').height()+5)));
-			$('#addBlock').css('margin-left', (-1 * ($('#addBlock').width()/2))+'px');
+			$('#menuBar').css('margin-left', (-1 * (($('#menuBar').width()/2)+10)));
+			$('#menuBar').css('margin-top', (-1 * ($('#menuBar').height()+5)));
+			$('#adBlock').css('margin-left', (-1 * ($('#adBlock').width()/2))+'px');
 		});
 		loadSocial = setTimeout(function()	{
-			$('#socialBar').css('margin-left', (-1 * (($('#socialBar').width()/2)+15)));
-			$('#socialBar').css('margin-top', (-1 * ($('#socialBar').height()+5))); 
-			$('#socialBar').trigger('mouseenter');
-			$('#socialBar').show();
+			$('#menuBar').css('margin-left', (-1 * (($('#menuBar').width()/2)+15)));
+			$('#menuBar').css('margin-top', (-1 * ($('#menuBar').height()+5))); 
+			$('#menuBar').trigger('mouseenter');
+			$('#menuBar').show();
 		}, 3000);
 		hideSocial = setTimeout(function() {
-			$('#socialBar').trigger('mouseleave');
+			$('#menuBar').trigger('mouseleave');
 		}, 12000);
-		loadAdds = setTimeout(function()	{
-			$('#addBlock').css('margin-left', (-1 * ($('#addBlock').width()/2)));
-			$('#addBlock').trigger('mouseenter');
-			$('#addBlock').show();
+		loadAds = setTimeout(function()	{
+			$('#adBlock').css('margin-left', (-1 * ($('#adBlock').width()/2)));
+			$('#adBlock').trigger('mouseenter');
+			$('#adBlock').show();
 		}, 3000);
-		hideAdds = setTimeout(function() {
-			$('#addBlock').trigger('mouseleave');
+		hideAds = setTimeout(function() {
+			$('#adBlock').trigger('mouseleave');
 		}, 12000);
-		upAdds = setInterval(function()	{
-			$('#addBlock').trigger('mouseenter');
-			downAdds = setTimeout(function() {
-				$('#addBlock').trigger('mouseleave');
+		upAds = setInterval(function()	{
+			$('#adBlock').trigger('mouseenter');
+			downAds = setTimeout(function() {
+				$('#adBlock').trigger('mouseleave');
 			}, 30000);
 		}, 120000);
 		$(function(){
 			positionFooter(); 
 			function positionFooter(){
-				$('#addHolder').css({top:($(window).scrollTop()+$(window).height()-$('#addHolder').height())+'px'})	
+				$('#adHolder').css({top:($(window).scrollTop()+$(window).height()-$('#adHolder').height())+'px'})	
 				$('#info').css({top:($(window).height()/2) + 'px'});
 				$('#info').css({left:($(window).width()/2) + 'px'});
 				$('.closeInfo').css({top:(($(window).height()/2)-130) + 'px'});
@@ -136,11 +164,3 @@ $(function () {
 		});
 	}
 );
-var addthis_config = {
-	data_ga_property: 'UA-25833530-1',
-	data_ga_social : true
-};
-
-var addthis_share = {
-	url: 'http://web.archive.org/web/20151103115427/http://horologium.rspct.us'
-}

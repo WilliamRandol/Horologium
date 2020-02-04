@@ -1,0 +1,16 @@
+#privacyTab {
+	color:#ccc;
+}
+
+#privacy, #about, .tabDiv {
+	overflow:auto;
+	overflow-x:hidden;
+	padding:5px 20px;
+	height:140px;
+	background-color:rgba(200, 200, 200, .7);
+	border-radius: 0 0 12px 12px;
+}
+
+#privacy {
+	display:none;
+}

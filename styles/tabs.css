@@ -1,0 +1,24 @@
+#tabMenu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	white-space: nowrap;
+	top:0;
+}
+
+#tabMenu li {
+	display:inline-block;
+	height:30px;
+	border-top: 0;
+	width:45%;
+	margin:0 -2px;
+	padding:10px;
+	text-align:center;
+	line-height:30px;;
+	font-size:25px;
+	border-radius:12px 12px 0 0;
+}
+
+li#aboutTab {
+	background-color:rgba(200, 200, 200, .7)
+}
