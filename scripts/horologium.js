@@ -1,4 +1,4 @@
-export class Horologium extends HTMLElement {
+class Horologium extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
