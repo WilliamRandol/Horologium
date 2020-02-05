@@ -1,66 +1,68 @@
-function romanize(num) {
-	if (!+num)
-		return '&nbsp;';
-	var	digits = String(+num).split(''),
-		key = ['','C','CC','CCC','CD','D','DC','DCC','DCCC','CM',
-			   '','X','XX','XXX','XL','L','LX','LXX','LXXX','XC',
-			   '','I','II','III','IV','V','VI','VII','VIII','IX'],
-		roman = '',
-		i = 3;
-	while (i--)
-		roman = (key[+digits.pop() + (i * 10)] || '') + roman;
-	return Array(+digits.join('') + 1).join('M') + roman;
-}
-function updateClock(){
-	const d=new Date();
-	const clocktext = document.getElementById('clocktext');
+// function romanize(num) {
+// 	if (!+num)
+// 		return '&nbsp;';
+// 	var	digits = String(+num).split(''),
+// 		key = ['','C','CC','CCC','CD','D','DC','DCC','DCCC','CM',
+// 			   '','X','XX','XXX','XL','L','LX','LXX','LXXX','XC',
+// 			   '','I','II','III','IV','V','VI','VII','VIII','IX'],
+// 		roman = '',
+// 		i = 3;
+// 	while (i--)
+// 		roman = (key[+digits.pop() + (i * 10)] || '') + roman;
+// 	return Array(+digits.join('') + 1).join('M') + roman;
+// }
+// function updateClock(){
+// 	const d=new Date();
+// 	const clocktext = document.getElementById('clocktext');
 
-	clocktext.innerHTML = 
-		`<div>
-			 <p>ANNUS</p>
-			 <p>${romanize(d.getFullYear())}</p>
-		 </div>
-		 <div>
-			 <p>MENSIS</p>
-			 <p>${romanize(d.getMonth()+1)}</p>
-		 </div>
-		 <div>
-			 <xhtmlp>DOMUS</p>
-			 <p>${romanize(d.getDate())}</p>
-		 </div>
-		 <div>
-			 <p>HORA</p>
-			 <p>${romanize(d.getHours())}</p>
-		 </div>
-		 <div>
-		 	 <p>MINUTUS</p>
-		 	 <p>${romanize(d.getMinutes())}</p>
-		 </div>
-		 <div>
-			 <p>SECUNDUS</p>
-			 <p>${romanize(d.getSeconds())}</p>
-		 </div>`;
-	setTimeout(updateClock,1000);
-}
-function buildClock() {
-	const clock = document.getElementById('clock');
-	const content = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
-	const clocktext = document.createElement('div');
+// 	clocktext.innerHTML = 
+// 		`<div>
+// 			 <p>ANNUS</p>
+// 			 <p>${romanize(d.getFullYear())}</p>
+// 		 </div>
+// 		 <div>
+// 			 <p>MENSIS</p>
+// 			 <p>${romanize(d.getMonth()+1)}</p>
+// 		 </div>
+// 		 <div>
+// 			 <xhtmlp>DOMUS</p>
+// 			 <p>${romanize(d.getDate())}</p>
+// 		 </div>
+// 		 <div>
+// 			 <p>HORA</p>
+// 			 <p>${romanize(d.getHours())}</p>
+// 		 </div>
+// 		 <div>
+// 		 	 <p>MINUTUS</p>
+// 		 	 <p>${romanize(d.getMinutes())}</p>
+// 		 </div>
+// 		 <div>
+// 			 <p>SECUNDUS</p>
+// 			 <p>${romanize(d.getSeconds())}</p>
+// 		 </div>`;
+// 	setTimeout(updateClock,1000);
+// }
+// function buildClock() {
+// 	const clock = document.getElementById('clock');
+// 	const content = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
+// 	const clocktext = document.createElement('div');
 
-	clock.setAttribute('viewBox', '0 0 1920 1080');
-	content.setAttribute('x', '0');
-	content.setAttribute('y', '12');
-	content.setAttribute('width', '1920');
-	content.setAttribute('height', '1080');
-	clocktext.setAttribute('id', 'clocktext');
+// 	clock.setAttribute('viewBox', '0 0 1920 1080');
+// 	content.setAttribute('x', '0');
+// 	content.setAttribute('y', '12');
+// 	content.setAttribute('width', '1920');
+// 	content.setAttribute('height', '1080');
+// 	clocktext.setAttribute('id', 'clocktext');
 
-	clock.appendChild(content);
-	content.appendChild(clocktext);
+// 	clock.appendChild(content);
+// 	content.appendChild(clocktext);
 
-	updateClock();
-}
+// 	updateClock();
+// }
 $(function () {
-	buildClock()
+	//buildClock()
+	import Horologium from './horologium.js'
+	window.customElements.define('wmr-horologium', Horologium);
 		var timeout = null;
 		var adtimer = null;
 		$('#menuBar').hover(
