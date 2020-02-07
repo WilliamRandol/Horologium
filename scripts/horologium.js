@@ -17,7 +17,6 @@ class Horologium extends HTMLElement {
         content.setAttribute('width', '1920');
         content.setAttribute('height', '1080');
         clocktext.setAttribute('id', 'clocktext');
-        console.log(this._style);
         style.innerText = this._style;
 
         clock.appendChild(content);
