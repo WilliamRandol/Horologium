@@ -10,6 +10,6 @@ window.onload = () => {
   
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-               .register('/styles/sw.js');
+               .register('/scripts/sw.js');
     }
   }
