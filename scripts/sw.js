@@ -11,6 +11,7 @@ var filesToCache = [
   '/scripts/Horologium.js',
   '/scripts/MenuBar.js',
   '/scripts/AdHolder.js',
+  '/images/background.jpg',
 ];
 
 /* Start the service worker and cache all of the app's content */
