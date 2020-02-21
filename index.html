@@ -13,37 +13,17 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <title>Horologium - Roman Numeral Digital Clock</title>
-    <script src="./scripts/jquery.min.js"></script>
-    <script src="./scripts/horologium.js"></script>
-    <script src="./scripts/horo.js"></script>
+    <script src="./scripts/horo.js" type="module"></script>
     <link href="./styles/horo.css" rel="stylesheet" type="text/css">
 </head>
 
 <body data-gr-c-s-loaded="true">
 
-    <div id="menuBar">
-        <a type="image" class="info" title="Information">Info</a>
-        <div id="menuBarOpen">
-            <p>. . . . .</p>
-        </div>
-    </div>
+    <menu-bar></menu-bar>
 
     <wmr-horologium></wmr-horologium>
 
-    <div id="adHolder">
-        <div id="adBlock">
-            <div id="adBlockOpen">
-                <p>. . . . .</p>
-            </div>
-            <!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-            <!-- Horologium -->
-            <!--<ins class="adsbygoogle" style="display:inline-block;width:234px;height:60px"
-                data-ad-client="ca-pub-8592241669619117" data-ad-slot="8542544241"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>-->
-        </div>
-    </div>
+    <xad-holder></xad-holder>
 
     <div id="infoBack">
         <div id="info">
