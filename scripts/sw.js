@@ -2,15 +2,15 @@ var cacheName = 'horologium-pwa';
 var filesToCache = [
   '/',
   '/index.html',
-  '/css/base.css',
-  '/css/main.css',
-  '/css/info.css',
-  '/css/privacy.css',
-  '/css/tabs.css',
-  '/js/main.js',
-  '/js/Horologium.js',
-  '/js/MenuBar.js',
-  '/js/AdHolder.js',
+  '/styles/base.css',
+  '/styles/main.css',
+  '/styles/info.css',
+  '/styles/privacy.css',
+  '/styles/tabs.css',
+  '/scripts/main.js',
+  '/scripts/Horologium.js',
+  '/scripts/MenuBar.js',
+  '/scripts/AdHolder.js',
 ];
 
 /* Start the service worker and cache all of the app's content */
