@@ -13,6 +13,8 @@ self.cacheKeys = [
     '/scripts/MenuBar.js',
     '/scripts/AdHolder.js',
     '/images/background.jpg',
+    '/images/icon-192.jpg',
+    '/images/icon-512.jpg',
 ];
 
 self.addEventListener('install', function (event) {
