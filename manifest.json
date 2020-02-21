@@ -1,9 +1,16 @@
 {
   "name": "Horologium",
   "short_name": "Horologium",
+  "version": "0.1",
+  "manifest_version": 2,
   "lang": "en",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "white",
-  "theme_color": "white"
+  "theme_color": "white",
+  "app": {
+    "background": {
+      "scripts": ["/images/background.js"]
+    }
+  }
 }
