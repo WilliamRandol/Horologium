@@ -23,6 +23,22 @@ self.addEventListener('install', function(e) {
   );
 });
 
+self.addEventListener('activate', event => {
+    // delete any caches that aren't in expectedCaches
+    // which will get rid of static-v1
+    event.waitUntil(
+      caches.keys().then(keys => Promise.all(
+        keys.map(key => {
+          if (!filesToCache.includes(key)) {
+            return caches.delete(key);
+          }
+        })
+      )).then(() => {
+        console.log('V2 now ready to handle fetches!');
+      })
+    );
+  });
+
 /* Serve cached content when offline */
 self.addEventListener('fetch', function(e) {
   e.respondWith(
