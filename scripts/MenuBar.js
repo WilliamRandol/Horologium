@@ -1,4 +1,4 @@
-export class MenuBar extends HTMLElement {
+export default class MenuBar extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });

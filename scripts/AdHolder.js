@@ -1,4 +1,4 @@
-export class AdHolder extends HTMLElement {
+export default class AdHolder extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
